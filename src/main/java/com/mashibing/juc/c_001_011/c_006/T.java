@@ -1,22 +1,23 @@
 /**
- * 分析一下这个程序的输出
+ * 对比上面一个小程序，分析一下这个程序的输出
  * @author mashibing
  */
 
-package com.mashibing.juc.c_005;
+package com.mashibing.juc.c_001_011.c_006;
 
 public class T implements Runnable {
 
-	private /*volatile*/ int count = 100;
+	private int count = 10;
 	
-	public /*synchronized*/ void run() { 
+	public synchronized void run() { 
 		count--;
 		System.out.println(Thread.currentThread().getName() + " count = " + count);
 	}
 	
 	public static void main(String[] args) {
-		T t = new T();
-		for(int i=0; i<100; i++) {
+		
+		for(int i=0; i<5; i++) {
+			T t = new T();
 			new Thread(t, "THREAD" + i).start();
 		}
 	}

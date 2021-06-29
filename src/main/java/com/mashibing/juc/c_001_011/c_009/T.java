@@ -3,7 +3,7 @@
  * 也就是说synchronized获得的锁是可重入的
  * @author mashibing
  */
-package com.mashibing.juc.c_009;
+package com.mashibing.juc.c_001_011.c_009;
 
 import java.util.concurrent.TimeUnit;
 

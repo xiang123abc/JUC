@@ -3,7 +3,7 @@
  * @author mashibing
  */
 
-package com.mashibing.juc.c_007;
+package com.mashibing.juc.c_001_011.c_007;
 
 public class T {
 

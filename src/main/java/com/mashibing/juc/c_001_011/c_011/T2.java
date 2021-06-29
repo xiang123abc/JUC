@@ -6,11 +6,11 @@
  * 因此要非常小心的处理同步业务逻辑中的异常
  * @author mashibing
  */
-package com.mashibing.juc.c_011;
+package com.mashibing.juc.c_001_011.c_011;
 
 import java.util.concurrent.TimeUnit;
 
-public class T {
+public class T2 {
 	int count = 0;
 	synchronized void m() {
 		System.out.println(Thread.currentThread().getName() + " start");
@@ -23,23 +23,26 @@ public class T {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
-			if(count == 5) {
-				int i = 1/0; //此处抛出异常，锁将被释放，要想不被释放，可以在这里进行catch，然后让循环继续
-				System.out.println(i);
+
+			try{
+				if(count == 5) {
+					int i = 1/0; //此处抛出异常，锁将被释放，要想不被释放，可以在这里进行catch，然后让循环继续
+					System.out.println(i);
+				}
+			}catch (Exception e){
+
 			}
+
 		}
 	}
 	
 	public static void main(String[] args) {
-		T t = new T();
+		T2 t = new T2();
 		Runnable r = new Runnable() {
-
 			@Override
 			public void run() {
 				t.m();
 			}
-			
 		};
 		new Thread(r, "t1").start();
 		

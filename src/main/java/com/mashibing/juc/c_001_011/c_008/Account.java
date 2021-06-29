@@ -7,7 +7,7 @@
  * 容易产生脏读问题（dirtyRead）
  */
 
-package com.mashibing.juc.c_008;
+package com.mashibing.juc.c_001_011.c_008;
 
 import java.util.concurrent.TimeUnit;
 

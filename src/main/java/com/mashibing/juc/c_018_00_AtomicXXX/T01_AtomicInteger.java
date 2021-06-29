@@ -7,6 +7,7 @@ package com.mashibing.juc.c_018_00_AtomicXXX;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -32,10 +33,16 @@ public class T01_AtomicInteger {
 
 		threads.forEach((o) -> o.start());
 
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
 		//等所有线程结束
 		threads.forEach((o) -> {
 			try {
-				o.join();//等我死掉（运行完）再走下一行
+				o.join();//如果已经死了return ||  等我死掉（运行完）再走下一行
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

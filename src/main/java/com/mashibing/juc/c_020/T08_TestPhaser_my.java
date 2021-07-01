@@ -4,10 +4,9 @@ import java.util.Random;
 import java.util.concurrent.Phaser;
 import java.util.concurrent.TimeUnit;
 
-public class T09_TestPhaser2 {
+public class T08_TestPhaser_my {
     static Random r = new Random();
     static MarriagePhaser phaser = new MarriagePhaser();
-
 
     static void milliSleep(int milli) {
         try {
@@ -19,18 +18,25 @@ public class T09_TestPhaser2 {
 
     public static void main(String[] args) {
 
-        phaser.bulkRegister(7);
+        phaser.bulkRegister(5);
 
         for(int i=0; i<5; i++) {
+            final int nameIndex = i;
+            new Thread(()->{
 
-            new Thread(new Person("p" + i)).start();
+                Person p = new Person("person " + nameIndex);
+                p.arrive();
+                phaser.arriveAndAwaitAdvance();
+
+                p.eat();
+                phaser.arriveAndAwaitAdvance();
+
+                p.leave();
+                phaser.arriveAndAwaitAdvance();
+            }).start();
         }
 
-        new Thread(new Person("新郎")).start();
-        new Thread(new Person("新娘")).start();
-
     }
-
 
 
     static class MarriagePhaser extends Phaser {
@@ -39,19 +45,14 @@ public class T09_TestPhaser2 {
 
             switch (phase) {
                 case 0:
-                    System.out.println("所有人到齐了！" + registeredParties);
-                    System.out.println();
+                    System.out.println("所有人到齐了！");
                     return false;
                 case 1:
-                    System.out.println("所有人吃完了！" + registeredParties);
-                    System.out.println();
+                    System.out.println("所有人吃完了！");
                     return false;
                 case 2:
-                    System.out.println("所有人离开了！" + registeredParties);
-                    System.out.println();
-                    return false;
-                case 3:
-                    System.out.println("婚礼结束！新郎新娘抱抱！" + registeredParties);
+                    System.out.println("所有人离开了！");
+                    System.out.println("婚礼结束！");
                     return true;
                 default:
                     return true;
@@ -60,7 +61,7 @@ public class T09_TestPhaser2 {
     }
 
 
-    static class Person implements Runnable {
+    static class Person {
         String name;
 
         public Person(String name) {
@@ -68,51 +69,20 @@ public class T09_TestPhaser2 {
         }
 
         public void arrive() {
-
             milliSleep(r.nextInt(1000));
             System.out.printf("%s 到达现场！\n", name);
-            phaser.arriveAndAwaitAdvance();
         }
 
         public void eat() {
             milliSleep(r.nextInt(1000));
             System.out.printf("%s 吃完!\n", name);
-            phaser.arriveAndAwaitAdvance();
         }
 
         public void leave() {
             milliSleep(r.nextInt(1000));
             System.out.printf("%s 离开！\n", name);
-
-
-            phaser.arriveAndAwaitAdvance();
         }
 
-        private void hug() {
-            if(name.equals("新郎") || name.equals("新娘")) {
-                milliSleep(r.nextInt(1000));
-                System.out.printf("%s 洞房！\n", name);
-                phaser.arriveAndAwaitAdvance();
-            } else {
-                phaser.arriveAndDeregister();//-----------------------------
-                //phaser.register()
-            }
-        }
-
-        @Override
-        public void run() {
-            arrive();
-
-
-            eat();
-
-
-            leave();
-
-
-            hug();
-
-        }
     }
 }
 

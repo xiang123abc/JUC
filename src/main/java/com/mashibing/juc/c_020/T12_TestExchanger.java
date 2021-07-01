@@ -21,11 +21,11 @@ public class T12_TestExchanger {
 
         new Thread(()->{
             String s = "T2";
-            try {
-                s = exchanger.exchange(s);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                s = exchanger.exchange(s);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
             System.out.println(Thread.currentThread().getName() + " " + s);
 
         }, "t2").start();

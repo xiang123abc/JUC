@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.concurrent.Phaser;
 import java.util.concurrent.TimeUnit;
 
-public class T09_TestPhaser2 {
+public class T09_TestPhaser2_my {
     static Random r = new Random();
     static MarriagePhaser phaser = new MarriagePhaser();
 
@@ -36,26 +36,27 @@ public class T09_TestPhaser2 {
     static class MarriagePhaser extends Phaser {
         @Override
         protected boolean onAdvance(int phase, int registeredParties) {
-
-            switch (phase) {
+            switch (phase){
                 case 0:
                     System.out.println("所有人到齐了！" + registeredParties);
                     System.out.println();
-                    return false;
+                    return false;//
                 case 1:
                     System.out.println("所有人吃完了！" + registeredParties);
                     System.out.println();
                     return false;
-                case 2:
+                case 3:
                     System.out.println("所有人离开了！" + registeredParties);
                     System.out.println();
                     return false;
-                case 3:
+                case 4:
                     System.out.println("婚礼结束！新郎新娘抱抱！" + registeredParties);
-                    return true;
+                    System.out.println();
+                    return false;
                 default:
-                    return true;
+                    return false;
             }
+//            return false;
         }
     }
 
@@ -101,10 +102,10 @@ public class T09_TestPhaser2 {
 
         @Override
         public void run() {
-            arrive();
+            arrive();//  对应  phase 0
 
 
-            eat();
+            eat();//  对应  phase 1
 
 
             leave();

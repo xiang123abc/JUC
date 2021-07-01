@@ -70,6 +70,7 @@ public class T05_Wait {
 
         t.start();////TERMINATED
         t3.start();
+        System.out.println("code after t");
         System.out.println(t.getState());
         try {
             t.join();
@@ -78,6 +79,7 @@ public class T05_Wait {
         }
 
         System.out.println(t.getState());//TERMINATED  5.ËÀÍö/½áÊø
+        System.out.println("code after t :2");
 
     }
 }

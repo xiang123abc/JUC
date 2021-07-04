@@ -3,6 +3,13 @@
 //import java.lang.invoke.MethodHandles;
 //import java.lang.invoke.VarHandle;
 //
+
+
+
+//___> VarHandle   jdk1.9   1.普通属性原子操作  2.比反射快，直接操纵二进制码
+
+
+
 //public class T01_HelloVarHandle {
 //
 //    int x = 8;

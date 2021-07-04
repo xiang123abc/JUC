@@ -12,7 +12,7 @@ public class TestReentrantLock {
         //synchronized (TestReentrantLock.class) {
             i++;
         //}
-
+        System.out.println(i);
         lock.unlock();
 
         //synchronized 程序员的丽春院 JUC

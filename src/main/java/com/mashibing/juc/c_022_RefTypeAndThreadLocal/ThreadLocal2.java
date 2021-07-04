@@ -12,6 +12,9 @@ package com.mashibing.juc.c_022_RefTypeAndThreadLocal;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ *   ThreadLocal set,get
+ */
 public class ThreadLocal2 {
 	//volatile static Person p = new Person();
 	static ThreadLocal<Person> tl = new ThreadLocal<>();

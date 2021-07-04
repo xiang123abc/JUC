@@ -31,3 +31,17 @@
     禁止指令重排序
 
  
+
+### AQS （c_20)
+ 1. AQS源码
+
+
+### 强软弱虚  （c_22)
+
+![img_3.png](img_3.png)
+![img_2.png](img_2.png)
+
+
+### ThreadLocal （c_22)
+1. ThreadLocal源码
+2. ThreadLocal用途： 声明式事务，如保证一个Connection

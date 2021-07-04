@@ -30,7 +30,19 @@
     保证线程可见性（缓存一致性协议）
     禁止指令重排序
 
- 
+### 各种JUC同步锁 (c_20)
+    ReentrantLock
+    CountDownLatch
+    CycliBarrier
+    Phaser
+    ReadWriteLock
+    Semaphore
+    Exchanger
+    LockSupport
+
+###  面试题目：实现容器，add,size...  (c_20)
+
+![img_4.png](img_4.png)
 
 ### AQS （c_20)
  1. AQS源码
@@ -45,3 +57,9 @@
 ### ThreadLocal （c_22)
 1. ThreadLocal源码
 2. ThreadLocal用途： 声明式事务，如保证一个Connection
+
+
+### 问题
+![img_5.png](img_5.png)
+![img_7.png](img_7.png)
+![img_6.png](img_6.png)

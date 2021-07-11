@@ -27,7 +27,7 @@ public class TicketSeller2 {
 		
 		for(int i=0; i<10; i++) {
 			new Thread(()->{
-				while(tickets.size() > 0) {
+				while(tickets.size() > 0) {//--------------------------- size() 和  remove()是synchronized，但是 中间代码是非线程安全的
 					
 					try {
 						TimeUnit.MILLISECONDS.sleep(10);
@@ -36,7 +36,7 @@ public class TicketSeller2 {
 					}
 					
 					
-					System.out.println("销售了--" + tickets.remove(0));
+					System.out.println("销售了--" + tickets.remove(0));//---------------------------
 				}
 			}).start();
 		}

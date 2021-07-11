@@ -4,7 +4,9 @@ import java.util.concurrent.LinkedTransferQueue;
 
 public class T09_TransferQueue {
 	public static void main(String[] args) throws InterruptedException {
-		LinkedTransferQueue<String> strs = new LinkedTransferQueue<>();
+
+		//无锁算法
+		LinkedTransferQueue<String> strs = new LinkedTransferQueue<>();//--------
 		
 		new Thread(() -> {
 			try {
@@ -14,7 +16,7 @@ public class T09_TransferQueue {
 			}
 		}).start();
 		
-		strs.transfer("aaa");
+		strs.transfer("aaa");//---------- transfer 是阻塞等待消费者拿到数据才返回,transfer方法和 SynchronousQueue的 put 方法类似
 		
 		//strs.put("aaa");
 

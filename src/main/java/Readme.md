@@ -63,3 +63,42 @@
 ![img_5.png](img_5.png)
 ![img_7.png](img_7.png)
 ![img_6.png](img_6.png)
+
+
+### 容器（特别是多线程高并发）  （c_25)
+
+![img_8.png](img_8.png)
+![img_9.png](img_9.png)
+List
+* CopyOnWriteList
+* Vector
+* ArrayList
+* LinkedList
+
+Set
+* HashSet,LinkedHashSet
+* SortedSet ,TreeSet
+* EnumSet
+* CopyOnWriteArraySet
+* ConcurrentSkipListSet
+
+Queue
+* 不堵塞队列
+  * PriorityQueue 基于优先级的无界优先级队列
+  * ConcurrentLinkedQueue 基于双向链表结构的无界并发队列
+* 堵塞队列
+  * Deque ArrayDeque,BlockingDeque,LinkedBlockingDeque
+  * BlockingDeque
+      * ArrayBlockingQueue  一个由数组支持的有界队列。
+      * PriorityBlockingQueue  个由优先级堆支持的无界优先级队列
+      * LinkedBlockingQueue  一个由链接节点支持的可选有界队列。
+      * TranferQueue  LinkedTransferQueue
+      * SynchronousQueue  一个利用 BlockingQueue 接口的简单聚集（rendezvous）机制
+* DelayQueue 一个由优先级堆支持的、基于时间的调度队列
+
+Map
+* HashMap LinkedHashMap
+* TreeMap
+* WeakHashMap
+* 
+

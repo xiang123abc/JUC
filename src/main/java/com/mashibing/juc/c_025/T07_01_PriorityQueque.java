@@ -4,7 +4,7 @@ import java.util.PriorityQueue;
 
 public class T07_01_PriorityQueque {
     public static void main(String[] args) {
-        PriorityQueue<String> q = new PriorityQueue<>();
+        PriorityQueue<String> q = new PriorityQueue<>();//  ª·≈≈–Ú
 
         q.add("c");
         q.add("e");

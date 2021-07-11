@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TicketSeller1 {
-	static List<String> tickets = new ArrayList<>();
+	static List<String> tickets = new ArrayList<>();//----  用List 无法满足 并发
 	
 	static {
 		for(int i=0; i<10000; i++) tickets.add("票编号：" + i);

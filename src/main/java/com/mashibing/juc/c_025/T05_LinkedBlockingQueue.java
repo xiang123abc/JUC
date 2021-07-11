@@ -13,7 +13,7 @@ public class T05_LinkedBlockingQueue {
 
 	public static void main(String[] args) {
 		new Thread(() -> {
-			for (int i = 0; i < 100; i++) {
+			for (int i = 0; i < 1000; i++) {
 				try {
 					strs.put("a" + i); //如果满了，就会等待
 					TimeUnit.MILLISECONDS.sleep(r.nextInt(1000));

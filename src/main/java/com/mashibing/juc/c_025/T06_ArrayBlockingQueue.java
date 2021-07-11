@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class T06_ArrayBlockingQueue {
 
-	static BlockingQueue<String> strs = new ArrayBlockingQueue<>(10);
+	static BlockingQueue<String> strs = new ArrayBlockingQueue<>(10);// 指定 大小10
 
 	static Random r = new Random();
 
@@ -17,10 +17,13 @@ public class T06_ArrayBlockingQueue {
 		}
 		
 		//strs.put("aaa"); //满了就会等待，程序阻塞
-		//strs.add("aaa");
+		strs.add("aaa"); // 满了会抛异常
 		//strs.offer("aaa");
-		strs.offer("aaa", 1, TimeUnit.SECONDS);
-		
+		boolean ifOffer = strs.offer("aaa", 1, TimeUnit.SECONDS);
+		System.out.println("offer :"+ifOffer);
+
 		System.out.println(strs);
+		System.out.println(strs.size());
+
 	}
 }

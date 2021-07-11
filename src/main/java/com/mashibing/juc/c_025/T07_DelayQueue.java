@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class T07_DelayQueue {
 
-	static BlockingQueue<MyTask> tasks = new DelayQueue<>();
+	static BlockingQueue<MyTask> tasks = new DelayQueue<>();//---------------
 
 	static Random r = new Random();
 	
@@ -62,7 +62,7 @@ public class T07_DelayQueue {
 		System.out.println(tasks);
 		
 		for(int i=0; i<5; i++) {
-			System.out.println(tasks.take());
+			System.out.println(tasks.take());//---------------------- 可以按 时间排序 先后
 		}
 	}
 }

@@ -34,7 +34,7 @@ public class TicketSeller4 {
 		for(int i=0; i<10; i++) {
 			new Thread(()->{
 				while(true) {
-					String s = tickets.poll();
+					String s = tickets.poll();//
 					if(s == null) break;
 					else System.out.println("ฯ๚สÛมห--" + s);
 				}
